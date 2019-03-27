@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<package>
+    <name>Mageinn_Hint</name>
+    <version>1.5.0</version>
+    <stability>stable</stability>
+    <license>Open Software License (OSL 3.0)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This module improves the usability of your store by enriching product attributes and its options with tooltips</summary>
+    <description>This Magento extension allows you to improve the usability of your Magento store by enriching product attributes and its options with descriptive tooltips/hints that work beautifully in every browser on any device.</description>
+    <notes>==== 1.5.0 ====&#xD;
+&#xD;
+=== Improvements ===&#xD;
+Converted to free version&#xD;
+&#xD;
+&#xD;
+&#xD;
+==== 1.4.0 ====&#xD;
+&#xD;
+=== Improvements ===&#xD;
+New retina-ready icon&#xD;
+&#xD;
+=== Fixes ===&#xD;
+Fixed: iOS issue with hiding tooltip on 'click outside' event&#xD;
+&#xD;
+&#xD;
+&#xD;
+==== 1.3.0 ====&#xD;
+&#xD;
+=== Improvements ===&#xD;
+Add template configuration for Layered Filter&#xD;
+&#xD;
+&#xD;
+&#xD;
+==== 1.2.0 ====&#xD;
+&#xD;
+=== Improvements ===&#xD;
+Now compatible with MageWorx_CustomOptions&#xD;
+&#xD;
+&#xD;
+&#xD;
+==== 1.1.0 ====&#xD;
+&#xD;
+=== Improvements ===&#xD;
+Add hints to product's custom options&#xD;
+&#xD;
+&#xD;
+&#xD;
+==== 1.0.1 ====&#xD;
+&#xD;
+=== Improvements ===&#xD;
+Add some flexibility to customize hints from CSS&#xD;
+&#xD;
+&#xD;
+&#xD;
+==== 1.0.0 ====&#xD;
+&#xD;
+Initial Release&#xD;
+&#xD;
+</notes>
+    <authors><author><name>Mageinn</name><user>Mageinn</user><email>sales@mageinn.com</email></author></authors>
+    <date>2017-02-18</date>
+    <time>16:23:23</time>
+    <contents><target name="magecommunity"><dir name="Mageinn"><dir name="Core"><dir name="Helper"><file name="Data.php" hash="2e1a1a40fe5c3745410dd8da56f11cc1"/></dir><dir name="Model"><file name="Feed.php" hash="67f6a434ef11878160cd982ae2572854"/><file name="Observer.php" hash="6b3dfe35514c435dcc5b3e20a579058e"/><dir name="Resource"><file name="Setup.php" hash="59a9cc46ffadc1b39bed1ea2ac37c679"/></dir></dir><dir name="controllers"><file name="DebugController.php" hash="b2ffd920aabb35544de44039970f6020"/></dir><dir name="etc"><file name="config.xml" hash="ba1057d5c4bc6a26b4e46bd43e3cc680"/><file name="system.xml" hash="fa0d769fe9dc54e5da44d1532a9aad0f"/></dir></dir><dir name="Hint"><dir name="Block"><dir name="Adminhtml"><dir name="Catalog"><dir name="Product"><dir name="Attribute"><dir name="Edit"><dir name="Tab"><file name="Hint.php" hash="57760caedede442433099136c167d4d4"/></dir></dir></dir><dir name="Edit"><file name="Hint.php" hash="c5391987f63e2e7c09e677ad3621ed42"/></dir></dir></dir></dir><dir name="Catalog"><dir name="Layer"><dir name="Filter"><file name="Attribute.php" hash="616b06aa4466cb3849c732165242a860"/></dir></dir></dir><file name="Hint.php" hash="a05e06e110bdf2afb7cc01b999ddddea"/></dir><dir name="Helper"><file name="Data.php" hash="7e697287b38924eb500a028060f7a2e5"/></dir><dir name="Model"><file name="Hint.php" hash="6c6fcbed4e8e13a4cb38ca297ce16aba"/><file name="Observer.php" hash="e94c1b731445847b4343f5c31fbc05e8"/><dir name="Option"><file name="Hint.php" hash="34c43777633c27901692b51f743c2ca0"/></dir><dir name="Resource"><dir name="Hint"><file name="Collection.php" hash="99ae92436b7c728b910e42b64731cc92"/></dir><file name="Hint.php" hash="425ee3703f6ec3ad03a95a58e05deb01"/><dir name="Option"><dir name="Hint"><file name="Collection.php" hash="9d595f3a92736d59e815d402b985cf45"/></dir><file name="Hint.php" hash="3e733e9ef345861dc86da327f9fdbbd6"/></dir><file name="Setup.php" hash="5ee8106325acc8a7383e65dd4c384337"/></dir></dir><dir name="data"><dir name="mageinn_hint_setup"><file name="data-upgrade-1.2.0-1.3.0.php" hash="1de81b803675f6901e9b3a0b49e44717"/></dir></dir><dir name="etc"><file name="config.xml" hash="9cd3f08d70c44d61995d4a6068519d5b"/><file name="system.xml" hash="73b24dc3d3207416bf86fc1be469b8b7"/></dir><file name="readme.txt" hash="4eb8746528d07a8e162c9a5e8aefae39"/><dir name="sql"><dir name="mageinn_hint_setup"><file name="install-1.0.0.php" hash="45f5a2995b03aff75af75202c3f88632"/><file name="upgrade-1.0.1-1.1.0.php" hash="ed3b65f3cadea7059767c35c4c200e2c"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Mageinn_Core.xml" hash="00508618a1af942d763cf930ca1cf3e6"/><file name="Mageinn_Hint.xml" hash="3057f58586c04920c8ca8cf2f18a97e8"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="mageinn"><file name="core.xml" hash="8e34f616364ec44a76a696968da12201"/><file name="hint.xml" hash="bf6363a668ff83ba557de6aed5f65b9a"/></dir></dir><dir name="template"><dir name="mageinn"><dir name="hint"><dir name="catalog"><dir name="product"><dir name="compare"><file name="list.phtml" hash="928897136387f5de6ab16b719f692d3c"/></dir><dir name="view"><file name="attributes.phtml" hash="d96011e0cc6f2b33cea44c72305c7739"/><dir name="options"><dir name="type"><file name="date.phtml" hash="d70c65cf3cbec50c027f3a90cbf3cca4"/><file name="default.phtml" hash="34472440501e98b1f08c8dd751a559ca"/><file name="file.phtml" hash="0ad5c832a8990a6d5dc319f703de290e"/><file name="select.phtml" hash="4dc26937d3be60a13b9b81c9c0a1101c"/><file name="text.phtml" hash="da09c745a3b831d66b8289968ddb5ba8"/></dir></dir></dir></dir></dir><file name="hint.phtml" hash="4ed5689e26b46ba57969c8ec03562ac0"/><file name="js.phtml" hash="be72614d5272c352d73d4d212951a1dc"/></dir><dir name="catalog"><dir name="layer"><file name="filter.phtml" hash="f8a759cadcc39d5ba629c2e55ed25b59"/><file name="view.phtml" hash="f20ac9beab7ddfbf36355fc734f8045b"/></dir></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="mageinn"><dir name="hint"><file name="form.phtml" hash="c389533e24f68eb8206549dfe4264eda"/><file name="option.phtml" hash="ba5c831f0d7ff64be2a6b8d47f9fd386"/></dir></dir></dir><dir name="layout"><dir name="mageinn"><file name="core.xml" hash="2f90c741043895509df07e28bba4375f"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="images"><dir name="mageinn"><dir name="hint"><file name="q.png" hash="6ea9f2d8bb32016e3d6b01eba4d428fe"/></dir></dir></dir><dir name="css"><dir name="mageinn"><dir name="hint"><file name="hint.css" hash="aa886209e69edd65c263a1d60cf79bd5"/></dir></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="mageinn"><dir name="jquery"><dir name="tipped"><file name="tipped.css" hash="bc579fe481e0fc41ef7629c71600afc5"/><file name="tipped.js" hash="06ed32cc3fc6e7cc945f41180e4d2f23"/></dir><file name="jquery.min.js" hash="b2f71c943f2f14613bc100fc3ec59db2"/><file name="jquery.noconflict.js" hash="d07784b624e9b9e8544f3106cd7cd1e1"/></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="Mageinn_Hint_Admin.csv" hash="dc52d228e3f6671c60a82cd662c1196d"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.0</min><max>7.0.6</max></php></required></dependencies>
+</package>

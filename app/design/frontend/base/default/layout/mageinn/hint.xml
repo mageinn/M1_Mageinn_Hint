@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageinn_Hint extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Mageinn
+ * @package     Mageinn_Hint
+ * @copyright   Copyright (c) 2014 Mageinn. (http://mageinn.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+
+/**
+ * @category   Mageinn
+ * @package    Mageinn_Hint
+ * @author     Mageinn
+ */
+-->
+<layout version="0.1.0">
+    <catalog_category_layered>
+        <reference name="head">
+            <block type="core/template" name="mageinn.hint.js" as="hintjs" template="mageinn/hint/js.phtml" />
+            <action method="addItem"><type>skin_css</type><name>css/mageinn/hint/hint.css</name><params/></action>
+        </reference>
+        <reference name="catalog.leftnav">
+            <action method="setTemplate"><template>mageinn/catalog/layer/view.phtml</template></action>
+        </reference>
+        <reference name="amshopby.navleft">
+            <action method="setTemplate"><template>mageinn/catalog/layer/view.phtml</template></action>
+        </reference>
+    </catalog_category_layered>
+    <catalog_product_compare_index>
+        <reference name="head">
+            <block type="core/template" name="mageinn.hint.js" as="hintjs" template="mageinn/hint/js.phtml" />
+            <action method="addItem"><type>skin_css</type><name>css/mageinn/hint/hint.css</name><params/></action>
+        </reference>
+        <reference name="catalog.compare.list">
+            <action method="setTemplate"><template>mageinn/hint/catalog/product/compare/list.phtml</template></action>
+        </reference>
+    </catalog_product_compare_index>
+    <catalog_product_view>
+        <reference name="head">
+            <block type="core/template" name="mageinn.hint.js" as="hintjs" template="mageinn/hint/js.phtml" />
+            <action method="addItem"><type>skin_css</type><name>css/mageinn/hint/hint.css</name><params/></action>
+        </reference>
+        <reference name="product.attributes">
+            <action method="setTemplate"><template>mageinn/hint/catalog/product/view/attributes.phtml</template></action>
+        </reference>
+        <reference name="product.info.options">
+            <action method="addOptionRenderer" ifconfig="mageinn_hint/general/default_templates"><type>text</type><block>catalog/product_view_options_type_text</block><template>mageinn/hint/catalog/product/view/options/type/text.phtml</template></action>
+            <action method="addOptionRenderer" ifconfig="mageinn_hint/general/default_templates"><type>file</type><block>catalog/product_view_options_type_file</block><template>mageinn/hint/catalog/product/view/options/type/file.phtml</template></action>
+            <action method="addOptionRenderer" ifconfig="mageinn_hint/general/default_templates"><type>select</type><block>catalog/product_view_options_type_select</block><template>mageinn/hint/catalog/product/view/options/type/select.phtml</template></action>
+            <action method="addOptionRenderer" ifconfig="mageinn_hint/general/default_templates"><type>date</type><block>catalog/product_view_options_type_date</block><template>mageinn/hint/catalog/product/view/options/type/date.phtml</template></action>
+        </reference>
+    </catalog_product_view>
+</layout>

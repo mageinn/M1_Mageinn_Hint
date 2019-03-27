@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Mageinn_Hint extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Mageinn
+ * @package     Mageinn_Hint
+ * @copyright   Copyright (c) 2016 Mageinn. (http://mageinn.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/**
+ * @category   Mageinn
+ * @package    Mageinn_Hint
+ * @author     Mageinn
+ */
+-->
+<config>
+    <modules>
+        <Mageinn_Hint>
+            <version>1.5.0</version>
+        </Mageinn_Hint>
+    </modules>
+    <global>
+        <helpers>
+            <mageinn_hint>
+                <class>Mageinn_Hint_Helper</class>
+            </mageinn_hint>
+        </helpers>
+        <blocks>
+            <mageinn_hint>
+                <class>Mageinn_Hint_Block</class>
+            </mageinn_hint>
+            <catalog>
+                <rewrite>
+                    <layer_filter_attribute>Mageinn_Hint_Block_Catalog_Layer_Filter_Attribute</layer_filter_attribute>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <models>
+            <mageinn_hint>
+                <class>Mageinn_Hint_Model</class>
+                <resourceModel>hint_resource</resourceModel>
+            </mageinn_hint>
+            <hint_resource>
+                <class>Mageinn_Hint_Model_Resource</class>
+                <entities>
+                    <hint>
+                        <table>eav_attribute_hint</table>
+                    </hint>
+                    <option_hint>
+                        <table>eav_attribute_option_hint</table>
+                    </option_hint>
+                </entities>
+            </hint_resource>
+        </models>
+        <resources>
+            <mageinn_hint_setup>
+                <setup>
+                    <module>Mageinn_Hint</module>
+                    <class>Mageinn_Hint_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mageinn_hint_setup>
+        </resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <mageinn_hint ifconfig="mageinn_hint/general/enabled">
+                    <file>mageinn/hint.xml</file>
+                </mageinn_hint>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mageinn_hint translate="title">
+                                            <title>Mageinn - Attribute's Hint</title>
+                                        </mageinn_hint>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <events>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <mageinn_hint_add_hint_tab>
+                        <type>singleton</type>
+                        <class>mageinn_hint/observer</class>
+                        <method>addExtraTab</method>
+                    </mageinn_hint_add_hint_tab>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+            <catalog_entity_attribute_save_after>
+                <observers>
+                    <mageinn_hint_save_hints>
+                        <type>singleton</type>
+                        <class>mageinn_hint/observer</class>
+                        <method>saveHints</method>
+                    </mageinn_hint_save_hints>
+                </observers>
+            </catalog_entity_attribute_save_after>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <mageinn_hint_add_option_hint>
+                        <class>mageinn_hint/observer</class>
+                        <method>htmlAfter</method>
+                    </mageinn_hint_add_option_hint>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+        <translate>
+            <modules>
+                <Mageinn_Hint>
+                    <files>
+                        <default>Mageinn_Hint_Admin.csv</default>
+                    </files>
+                </Mageinn_Hint>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <mageinn_hint>
+            <general>
+                <filter_template>mageinn/catalog/layer/filter.phtml</filter_template>
+                <default_templates>1</default_templates>
+            </general>
+        </mageinn_hint>
+    </default>
+</config>

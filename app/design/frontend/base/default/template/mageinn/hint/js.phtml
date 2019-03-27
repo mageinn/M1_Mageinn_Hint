@@ -1,0 +1,25 @@
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js'); ?>mageinn/jquery/tipped/tipped.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo Mage::getBaseUrl('js'); ?>mageinn/jquery/tipped/tipped.css" media="all" />
+<script type="text/javascript">
+//<![CDATA[
+if (typeof $j == 'undefined') { 
+    $j = jQuery;
+}
+$j(document).ready(function($) {
+    $('.attrhint').each(function () {
+        Tipped.create(this, $(this).next('div:hidden'), {showOn: 'click', hideOn: 'click', hideOnClickOutside: true});
+    });
+});
+
+document.observe("catalog:update", function(event) {
+    if (typeof $j == 'undefined') { 
+        $j = jQuery;
+    }
+    $j('.attrhint').each(function () {
+        Tipped.create(this, $(this).next('div:hidden'), {showOn: 'click', hideOn: 'click', hideOnClickOutside: true});
+    });
+});
+
+
+//]]>
+</script>

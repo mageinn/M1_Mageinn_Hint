@@ -1,0 +1,111 @@
+<?php
+/**
+ * Mageinn_Hint extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Mageinn
+ * @package     Mageinn_Hint
+ * @copyright   Copyright (c) 2014 Mageinn. (http://mageinn.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+
+/**
+ * @category   Mageinn
+ * @package    Mageinn_Hint
+ * @author     Mageinn
+ */
+?>
+<div>
+    <ul class="messages">
+        <li class="notice-msg">
+            <ul>
+                <li><?php echo Mage::helper('catalog')->__('If you do not specify an option value for a specific store view then the default (Admin) value will be used.') ?></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="entity-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('mageinn_hint')->__('Manage Title Hint') ?></h4>
+    </div>
+    <div class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+            <table class="form-list" cellspacing="0" id="attribute-hints-table">
+                <?php $_hints = $this->getHintValues() ?>
+                <?php foreach ($this->getStores() as $_store): ?>
+                <tr>
+                <td class="label"><?php echo $_store->getName() ?> <?php if($_store->getId() == 0):?><span class="required">*</span><?php endif;?></td>
+                <td class="value">
+                    <textarea class="hintMceEditor" cols="15" rows="2" style="height: 7em;" name="frontend_hints[<?php echo $_store->getId() ?>]" id="frontend_hint_<?php echo $_store->getId() ?>"><?php echo $this->htmlEscape($_hints[$_store->getId()]) ?></textarea><?php echo $this->getWysiwygElementHtml("frontend_hint_"  . $_store->getId()); ?>
+                </td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="entity-edit custom-options">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('mageinn_hint')->__('Manage Options Hints') ?></h4>
+    </div>
+    <div class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+            <?php $_options = $this->getOptionValues() ?>
+            <?php if(!empty($_options)): ?>
+                <?php foreach ($_options as $_option): ?>
+                <div id="option_<?php echo $_option['id']; ?>" class="option-box">
+                    <table class="form-list" cellspacing="0" id="attribute-option-hint-table">
+                        <tr><td colspan="2"><div class="content-header">
+                            <h3 class="icon-head head-products"><?php echo $_option['store0'] ?></h3>
+                        </div></td></tr>
+                        <?php $_hints = $this->getHintValues() ?>
+                        <?php foreach ($this->getStores() as $_store): ?>
+                        <tr>
+                        <td class="label"><?php echo $_store->getName() ?> <?php if($_store->getId() == 0):?><span class="required">*</span><?php endif;?></td>
+                        <td class="value">
+                            <textarea class="hintMceEditor" cols="15" rows="2" style="height: 5em;" name="option[hint][<?php echo $_option['id'] ?>][<?php echo $_store->getId() ?>]" id="option_hint_<?php echo $_option['id'] ?>_<?php echo $_store->getId() ?>"><?php echo $this->htmlEscape($_option['hints'][$_store->getId()]) ?></textarea><?php echo $this->getWysiwygElementHtml("option_hint_"  . $_option['id'] . "_" . $_store->getId()); ?>
+                        </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <ul class="messages">
+                    <li class="notice-msg">
+                        <ul>
+                            <li><?php echo Mage::helper('catalog')->__('Can be used only with attributes of type Dropdown and Multiple Select.') ?></li>
+                        </ul>
+                    </li>
+                </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var wysiwygHints = new Array();
+function wysiwygToggle(id) {
+    if( wysiwygHints[id] == 1 ){
+        wysiwygHints[id] = 0;
+        tinyMCE.execCommand('mceRemoveControl', false, id);
+    } else {
+        tinyMCE.execCommand('mceAddControl',false,id);
+        wysiwygHints[id] = 1;
+    }
+}
+//]]>
+</script>
